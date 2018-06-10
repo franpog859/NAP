@@ -27,6 +27,6 @@ public class AlarmIntentService extends IntentService {
         // Do the work that requires your app to keep the CPU running.
         // ...
         // Release the wake lock provided by the WakefulBroadcastReceiver.
-        AlarmReceiver.completeWakefulIntent(intent);
+        //AlarmReceiver.completeWakefulIntent(intent);
     }
 }
