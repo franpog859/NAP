@@ -10,7 +10,7 @@
         android:id="@+id/cancelAlarmButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="cancelAlarm"
+        android:onClick="cancelAlarmAndClose"
         android:text="cancel"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
