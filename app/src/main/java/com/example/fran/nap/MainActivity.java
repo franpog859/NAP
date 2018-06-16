@@ -38,9 +38,16 @@ public class MainActivity extends AppCompatActivity {
                 SystemClock.elapsedRealtime() + 1000 * 5, pendingIntent);
     }
 
-    private void cancelAlarm(View view) {
+    public void cancelAlarm(View view) {
         if (alarmManager!= null) {
             alarmManager.cancel(pendingIntent);
+            //TODO: Close the app.
+            closeApp();
         }
+    }
+
+    private void closeApp() {
+        finish();
+        System.exit(0);
     }
 }
