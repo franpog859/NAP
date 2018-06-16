@@ -4,6 +4,7 @@ import android.app.KeyguardManager;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Build;
 import android.os.CountDownTimer;
 import android.os.PowerManager;
@@ -26,8 +27,12 @@ public class AlarmReceiver extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent intent) {
-        Toast.makeText(context, "asdadad", Toast.LENGTH_SHORT).show();
 
+        Intent lockScreen = new Intent(context, LockScreen.class);
+        lockScreen.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP |
+                Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        context.startActivity(lockScreen);
+/*
         Vibrator v = (Vibrator) context.getSystemService(Context.VIBRATOR_SERVICE);
         v.vibrate(400);
 
@@ -39,8 +44,8 @@ public class AlarmReceiver extends BroadcastReceiver {
 
         //FIXIT: Something is wrong when screen wakes up and user taps the HOME button.
         KeyguardManager keyguardManager = (KeyguardManager) context.getSystemService(Context.KEYGUARD_SERVICE);
-        final KeyguardManager.KeyguardLock keyguardLock = keyguardManager.newKeyguardLock("TAG");
-        keyguardLock.disableKeyguard();
+        final KeyguardManager.KeyguardLock lock = keyguardManager.newKeyguardLock("TAG");
+        lock.disableKeyguard();*/
 
         //Intent service = new Intent(context, AlarmIntentService.class);
         //startWakefulService(context, service);
