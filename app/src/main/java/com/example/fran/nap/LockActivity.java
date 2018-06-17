@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.view.Window;
 import android.view.WindowManager;
 
-public class LockScreen extends AppCompatActivity {
+public class LockActivity extends AppCompatActivity {
 
     private Window wind;
     private boolean isSoundStarted = false;

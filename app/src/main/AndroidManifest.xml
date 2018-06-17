@@ -25,7 +25,7 @@
             android:name=".AlarmReceiver"
             android:process=":remote" />
 
-        <activity android:name=".LockScreen"></activity>
+        <activity android:name=".LockActivity"></activity>
     </application>
 
 </manifest>

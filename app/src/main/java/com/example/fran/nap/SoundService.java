@@ -14,10 +14,14 @@ public class SoundService {
     private final static int INTRO_VOLUME = 50;
     private static float defaultAudioManagerVolume;
 
-    static public void getUsersVolume(Context context) {
+    static public void prepare(Context context) {
+        getUsersVolume(context);
+        setAudioManagerPercentVolume(context, MAX_VOLUME);
+    }
+
+    static private void getUsersVolume(Context context) {
         AudioManager audioManager = (AudioManager)context.getSystemService(Context.AUDIO_SERVICE);
         defaultAudioManagerVolume = audioManager.getStreamVolume(AudioManager.STREAM_MUSIC);
-        setAudioManagerPercentVolume(context, MAX_VOLUME);
     }
 
     static private void setAudioManagerPercentVolume(Context context, int percentVolume) {

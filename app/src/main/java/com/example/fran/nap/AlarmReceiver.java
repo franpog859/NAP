@@ -16,7 +16,7 @@ public class AlarmReceiver extends BroadcastReceiver {
     }
 
     private void turnLockScreenActivityOn(Context context) {
-        Intent lockScreen = new Intent(context, LockScreen.class);
+        Intent lockScreen = new Intent(context, LockActivity.class);
         lockScreen.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP |
                 Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         context.startActivity(lockScreen);
