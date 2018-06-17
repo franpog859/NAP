@@ -1,5 +1,6 @@
 package com.example.fran.nap;
 
+import android.content.Context;
 import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -20,17 +21,8 @@ public class LockScreen extends AppCompatActivity {
         wind.addFlags(WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON);
         wind.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
-        startAlarmSounds();
-    }
-
-    private void startAlarmSounds() {
         if (!isSoundStarted) {
-            MediaPlayer mediaPlayer = new MediaPlayer();
-
-            int resourceId = getResources().getIdentifier('a' + Integer.toString(1), "raw", "com.example.fran.nap");
-            mediaPlayer = MediaPlayer.create(LockScreen.this, resourceId);
-
-            mediaPlayer.start();
+            SoundService.startAlarmSounds(getApplicationContext());
             isSoundStarted = true;
         }
     }

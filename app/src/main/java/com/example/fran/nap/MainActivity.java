@@ -8,6 +8,7 @@ import android.os.SystemClock;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -24,17 +25,32 @@ public class MainActivity extends AppCompatActivity {
 
         setAlarmReceiver();
         setAlarm();
+        SoundService.playIntro(getApplicationContext());
+        //AirplaneService.turnAirplaneModeOn();
+        //NotificationService.startCountingDown();
+        displayIntroToast();
+        turnDisplayOffAfterIntro();
     }
 
     private void setAlarmReceiver() {
         Intent intent = new Intent(getBaseContext(), AlarmReceiver.class);
-        pendingIntent = PendingIntent.getBroadcast(
-                getApplicationContext(), 1, intent, 0);
+        pendingIntent = PendingIntent
+                .getBroadcast(getApplicationContext(), 1, intent, 0);
     }
+
     private void setAlarm() {
         alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
         alarmManager.set(AlarmManager.ELAPSED_REALTIME_WAKEUP,
                 SystemClock.elapsedRealtime() + testTime, pendingIntent);
+    }
+
+    private void displayIntroToast() {
+        String message = "Everything is set. It's time for a nap!";
+        Toast.makeText(this, message, Toast.LENGTH_LONG).show();
+    }
+
+    private void turnDisplayOffAfterIntro() {
+        //TODO
     }
 
     public void cancelAlarmAndClose(View view) {
