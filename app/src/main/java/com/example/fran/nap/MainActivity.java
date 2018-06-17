@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
 
         setAlarmReceiver();
         setAlarm();
+        SoundService.getUsersVolume(getApplicationContext());
         SoundService.playIntro(getApplicationContext());
         //AirplaneService.turnAirplaneModeOn();
         //NotificationService.startCountingDown();
@@ -63,5 +64,11 @@ public class MainActivity extends AppCompatActivity {
     private void closeApp() {
         finish();
         System.exit(0);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        //TODO: Take care of all things here.
     }
 }
