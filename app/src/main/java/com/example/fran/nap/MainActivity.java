@@ -16,6 +16,8 @@ public class MainActivity extends AppCompatActivity {
         AlarmService.setAlarmReceiver();
         AlarmService.setAlarm();
 
+        SoundsRepository.createPlaylist(getApplicationContext());
+
         VolumeService.prepare(getApplicationContext());
         AudioService.playIntro(getApplicationContext());
         //AirplaneService.turnAirplaneModeOn();
@@ -30,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void turnDisplayOffAfterIntro() {
-        //TODO
+        //TODO: Create DisplayService.
     }
 
     public void cancelAlarmAndClose(View view) {
