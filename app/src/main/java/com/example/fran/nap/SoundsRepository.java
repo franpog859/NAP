@@ -11,22 +11,22 @@ import java.util.Random;
 
 public class SoundsRepository {
 
-    static public final int NUMBER_OF_SOUNDS = 39;
+    private static final int NUMBER_OF_SOUNDS = 39;
 
-    static public ArrayList<Integer> playlist;
-    static private Context context;
+    private static ArrayList<Integer> playlist;
+    private static Context context;
 
-    static public void createPlaylist(Context _context) {
+    public static void createPlaylist(Context _context) {
         context = _context;
         playlist = new ArrayList<>();
         for (int i = 1; i <= NUMBER_OF_SOUNDS; i++) {
-            String stringId = 'a' + Integer.toString(i);
-            int resourceId = context.getResources().getIdentifier(stringId, "raw", "com.example.fran.nap");
+            String fileName = 'a' + Integer.toString(i);
+            int resourceId = context.getResources().getIdentifier(fileName, "raw", "com.example.fran.nap");
             playlist.add(resourceId);
         }
     }
 
-    static public int getRandomSoundId() {
+    public static int getRandomSoundId() {
         Random randomGenerator = new Random();
         int randomSoundNumber = randomGenerator.nextInt(NUMBER_OF_SOUNDS) + 1;
         return playlist.get(randomSoundNumber);

@@ -16,31 +16,31 @@ public class VolumeService {
     private static AudioManager audioManager;
     private static Context context;
 
-    static public void prepare(Context _context) {
+    public static void prepare(Context _context) {
         setInternalVariables(_context);
         saveDefaultUsersVolume();
         int maxAudioManagerVolume = getMaxAudioManagerVolume();
         setAudioManagerVolume(maxAudioManagerVolume);
     }
 
-    static private void setInternalVariables(Context _context) {
+    private static void setInternalVariables(Context _context) {
         context = _context;
         audioManager = (AudioManager)context.getSystemService(Context.AUDIO_SERVICE);
     }
 
-    static private void saveDefaultUsersVolume() {
+    private static void saveDefaultUsersVolume() {
         defaultAudioManagerVolume = audioManager.getStreamVolume(AudioManager.STREAM_MUSIC);
     }
 
-    static private int getMaxAudioManagerVolume() {
+    private static int getMaxAudioManagerVolume() {
         return audioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC);
     }
 
-    static public void setAudioManagerVolume(int volume) {
+    private static void setAudioManagerVolume(int volume) {
         audioManager.setStreamVolume(AudioManager.STREAM_MUSIC, volume, 0);
     }
 
-    static public void setMediaPlayerPercentVolume(MediaPlayer mediaPlayer, int percentVolume) {
+    public static void setMediaPlayerPercentVolume(MediaPlayer mediaPlayer, int percentVolume) {
         final float volume = (float) (1.0 - (Math.log(1 + MAX_VOLUME - percentVolume) / Math.log(MAX_VOLUME)));
         mediaPlayer.setVolume(volume, volume);
     }
