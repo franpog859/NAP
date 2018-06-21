@@ -20,7 +20,7 @@ public class LockActivity extends AppCompatActivity {
         wind.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
         if (!isSoundStarted) {
-            SoundService.startAlarmSounds(getApplicationContext());
+            AudioService.startAlarmSounds(getApplicationContext());
             isSoundStarted = true;
         }
     }

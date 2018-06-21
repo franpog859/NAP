@@ -25,8 +25,8 @@ public class MainActivity extends AppCompatActivity {
 
         setAlarmReceiver();
         setAlarm();
-        SoundService.prepare(getApplicationContext());
-        SoundService.playIntro(getApplicationContext());
+        VolumeService.prepare(getApplicationContext());
+        AudioService.playIntro(getApplicationContext());
         //AirplaneService.turnAirplaneModeOn();
         //NotificationService.startCountingDown();
         displayIntroToast();
