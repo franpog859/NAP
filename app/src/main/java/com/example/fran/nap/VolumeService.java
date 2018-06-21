@@ -17,11 +17,15 @@ public class VolumeService {
     private static Context context;
 
     static public void prepare(Context _context) {
-        audioManager = (AudioManager)context.getSystemService(Context.AUDIO_SERVICE);
-        context = _context;
+        setInternalVariables(_context);
         saveDefaultUsersVolume();
         int maxAudioManagerVolume = getMaxAudioManagerVolume();
         setAudioManagerVolume(maxAudioManagerVolume);
+    }
+
+    static private void setInternalVariables(Context _context) {
+        context = _context;
+        audioManager = (AudioManager)context.getSystemService(Context.AUDIO_SERVICE);
     }
 
     static private void saveDefaultUsersVolume() {
