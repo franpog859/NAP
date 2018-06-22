@@ -13,12 +13,20 @@ public class LockActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+
+        adjustActivity();
+        startAlarming();
+    }
+
+    private void adjustActivity() {
         wind = this.getWindow();
         wind.addFlags(WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD);
         wind.addFlags(WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED);
         wind.addFlags(WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON);
         wind.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+    }
 
+    private void startAlarming() {
         if (!isSoundStarted) {
             AudioService.startAlarmSounds(getApplicationContext());
             isSoundStarted = true;

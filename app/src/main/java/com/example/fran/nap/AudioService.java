@@ -19,14 +19,14 @@ public class AudioService {
     public static void playIntro(Context context) {
         MediaPlayer mediaPlayer = MediaPlayer.create(context, R.raw.intro);
         VolumeService.setMediaPlayerPercentVolume(mediaPlayer, INTRO_VOLUME);
-        mediaPlayer.start();
+        mediaPlayer.start(); //TODO: Trigger the DisplayService to turn display off after the intro.
     }
 
-    public static void startAlarmSounds(final Context context) { //TODO
+    public static void startAlarmSounds(final Context context) { //TODO: Take care about the volume.
         setUpMediaPlayer(context);
         setUpNextSound(context);
     }
-    
+
     private static void setUpMediaPlayer(Context context) {
         int soundId = SoundsRepository.getRandomSoundId();
         mediaPlayer = MediaPlayer.create(context, soundId);
