@@ -28,7 +28,7 @@ public class SoundsRepository {
 
     public static int getRandomSoundId() {
         Random randomGenerator = new Random();
-        int randomSoundNumber = randomGenerator.nextInt(NUMBER_OF_SOUNDS) + 1;
+        int randomSoundNumber = randomGenerator.nextInt(NUMBER_OF_SOUNDS);
         return playlist.get(randomSoundNumber);
     }
 }
