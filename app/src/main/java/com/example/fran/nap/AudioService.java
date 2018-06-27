@@ -28,8 +28,8 @@ public class AudioService {
     }
 
     public static void startAlarmSounds(final Context context) {
-        setAlarmVolume();
         playNextSound(context);
+        setAlarmVolume();
     }
 
     private static void setAlarmVolume() {

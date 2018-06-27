@@ -42,6 +42,6 @@ public class LockActivity extends AppCompatActivity {
 
     public void stopAlarm(View view) {
         finish();
-        System.exit(0);
+        AppService.shutDownApp();
     }
 }
