@@ -22,17 +22,13 @@ public class MainActivity extends AppCompatActivity {
         AudioService.playIntro(getApplicationContext());
         //AirplaneService.turnAirplaneModeOn();
         //NotificationService.startCountingDown();
+        //DisplayService.turnOffWithDelay(getApplicationContext());
         displayIntroToast();
-        turnDisplayOffAfterIntro();
     }
 
     private void displayIntroToast() {
         String message = "Everything is set. It's time for a nap!";
         Toast.makeText(this, message, Toast.LENGTH_LONG).show();
-    }
-
-    private void turnDisplayOffAfterIntro() {
-        //TODO: Create DisplayService.
     }
 
     public void cancelAlarmAndClose(View view) {
