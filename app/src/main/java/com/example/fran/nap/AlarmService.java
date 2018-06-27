@@ -19,16 +19,22 @@ public class AlarmService {
     private static PendingIntent pendingIntent;
     private static Context context;
 
-    public static void prepare(Context _context) {
+    public static void set(Context context) {
+        prepare(context);
+        setAlarmReceiver();
+        setAlarm();
+    }
+
+    private static void prepare(Context _context) {
         context = _context;
     }
 
-    public static void setAlarmReceiver() {
+    private static void setAlarmReceiver() {
         Intent intent = new Intent(context, AlarmReceiver.class);
         pendingIntent = PendingIntent.getBroadcast(context, 1, intent, 0);
     }
 
-    public static void setAlarm() {
+    private static void setAlarm() {
         alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
         alarmManager.set(AlarmManager.ELAPSED_REALTIME_WAKEUP,
                 SystemClock.elapsedRealtime() + testTime, pendingIntent);

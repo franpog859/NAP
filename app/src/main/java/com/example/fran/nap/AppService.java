@@ -13,17 +13,13 @@ public class AppService {
 
     public static void setApp(Context _context) {
         context = _context;
-        AlarmService.prepare(context);
-        AlarmService.setAlarmReceiver();
-        AlarmService.setAlarm();
-
+        AlarmService.set(context);
         SoundsRepository.createPlaylist(context);
-
-        VolumeService.prepare(context);
-        AudioService.playIntro(context);
         //AirplaneService.turnAirplaneModeOn();
         //NotificationService.startCountingDown();
         //DisplayService.turnOffWithDelay(getApplicationContext());
+        VolumeService.prepare(context);
+        AudioService.playIntro(context);
         displayIntroToast();
     }
 
