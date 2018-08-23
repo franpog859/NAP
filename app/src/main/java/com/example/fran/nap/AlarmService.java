@@ -13,7 +13,6 @@ import android.os.SystemClock;
 public class AlarmService {
 
     private static final int timeInMillis = 1000 * 60 * 26;
-    private static final int testTime = 1000 * 5; //TODO: Replace it later with timeInMillis.
 
     private static AlarmManager alarmManager;
     private static PendingIntent pendingIntent;
@@ -37,7 +36,7 @@ public class AlarmService {
     private static void setAlarm() {
         alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
         alarmManager.set(AlarmManager.ELAPSED_REALTIME_WAKEUP,
-                SystemClock.elapsedRealtime() + testTime, pendingIntent);
+                SystemClock.elapsedRealtime() + timeInMillis, pendingIntent);
     }
 
     public static void cancelAlarm() {
