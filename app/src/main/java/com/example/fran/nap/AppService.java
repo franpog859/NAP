@@ -15,10 +15,6 @@ public class AppService {
         context = _context;
         AlarmService.set(context);
         SoundsRepository.createPlaylist(context);
-        //TODO:
-        //AirplaneService.turnAirplaneModeOn();
-        //NotificationService.startCountingDown();
-        //DisplayService.turnOffWithDelay();
         VolumeService.prepare(context);
         AudioService.playIntro(context);
         displayIntroToast();
@@ -30,10 +26,6 @@ public class AppService {
     }
 
     public static void shutDownApp() {
-        //TODO: Take care of all things here.
-        //AirplaneService.turnAirplaneModeOff();
-        //VolumeService.setUsersVolume();
-        //NotificationService.closeNotification();
         System.exit(0);
     }
 }
