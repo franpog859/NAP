@@ -19,7 +19,9 @@ App takes care about everything. You should only tap the icon, take a nap and it
 
 ## Screenshots
 
-![Screenhots](https://raw.githubusercontent.com/franpog859/NAP/master/doc/screenshot-01.png)
+<p align="center">
+<img src="https://raw.githubusercontent.com/franpog859/NAP/master/doc/screenshot-01.png" height="400">
+</p>
 
 ## Future plans
 
